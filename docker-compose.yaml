@@ -1,0 +1,21 @@
+services:
+  mysql:
+    container_name: db
+    image: mysql:9.1.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=mydb
+    ports:
+      - 3306:3306
+  app:
+    build: .
+    container_name: app
+    volumes:
+      - ./src:/var/www/app
+      - ./php.ini:/usr/local/etc/php/conf.d/custom.php.ini
+    ports:
+      - 3000:3000
+    command: php -S 0.0.0.0:3000 -t /var/www/app/
+    depends_on:
+      - mysql
+
