@@ -14,6 +14,6 @@
     DB_PASSWORD
   );
 
-  include_once __DIR__ . '/../models/product.php';
-  $product = new CProduct($db);
+  include_once __DIR__ . '/../app/Models/Product.php';
+  $product = new Product($db);
   $db->query(file_get_contents(__DIR__ . '/seeds/products.sql'));

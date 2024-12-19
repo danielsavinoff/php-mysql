@@ -12,7 +12,7 @@ services:
     container_name: app
     volumes:
       - ./src:/var/www/app
-      - ./php.ini:/usr/local/etc/php/conf.d/custom.php.ini
+      - ./src/php.ini:/usr/local/etc/php/conf.d/custom.php.ini
     ports:
       - 3000:3000
     command: php -S 0.0.0.0:3000 -t /var/www/app/
